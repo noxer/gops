@@ -26,11 +26,22 @@ func AddDir(segs []separator.Segment) []separator.Segment {
 
 	parts := strings.Split(wd, string(filepath.Separator))
 
+	i := len(parts) * 3
+	for _, p := range parts {
+		i += len(p)
+	}
+
 	if parts[0] == "" {
 		parts[0] = "/"
 	}
 	if parts[len(parts)-1] == "" {
 		parts = parts[:len(parts)-1]
+	}
+
+	if i > 20 && len(parts) > 5 {
+		parts[2] = " \u2026 "
+		copy(parts[3:], parts[len(parts)-2:])
+		parts = parts[:5]
 	}
 
 	for _, p := range parts {
