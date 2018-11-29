@@ -22,15 +22,19 @@ func Add(segs []separator.Segment) []separator.Segment {
 
 	head, err := repo.Head()
 	if err != nil {
-		return segs
+		return append(segs, separator.Segment{
+			Text:       " \ue0a0 ? ",
+			Foreground: color.DarkGray,
+			Background: color.Yellow,
+		})
 	}
 
-	segs = append(segs, separator.Segment{
+	s := separator.Segment{
 		Text:       " \ue0a0 " + head.Name().Short() + " ",
 		Foreground: color.DarkGray,
 		Background: color.Yellow,
-	})
+	}
 
-	return segs
+	return append(segs, s)
 
 }
