@@ -18,7 +18,7 @@ Now you can install GoPS by running
 go get -u github.com/noxer/gops
 ```
 
-After the downloading and building of GoPS is complete, add it as your prompt. Is this case we are editing the `~/.bashrc` file and add the following line
+After the downloading and building of GoPS is complete, add it as your prompt. Is this case I'm editing the `~/.bashrc` file and adding the following line
 
 ```bash
 PS1='$(gops)'
