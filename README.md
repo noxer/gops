@@ -29,3 +29,21 @@ To apply the change, you need to either close your console and open it again or 
 ```bash
 source ~/.bashrc
 ```
+
+## FAQ
+(Questions that have never been asked but I think the answers may help you)
+
+### Where do it put my config file? How do I configure GoPS?
+You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselfs to adapt the prompt to your needs.
+
+### I've successfully built and activated GoPS but prints strange characters in the prompt. How do I fix that?
+You've either not installed `powerline-fonts` or it is not configured to be used in your terminal. Make sure you've installed installed it from [here](https://github.com/powerline/fonts#installation) and you've activated one of the fonts. The font used for the screenshot is `Source Code Pro for Powerline Medium`.
+
+### I found a bug, how do I report it?
+Open an issue in this repository. Make sure you include information about the used operating system and terminal.
+
+### Does GoPS support shell XYZ?
+No idea. I've tested it with `bash` in a GNOME-Terminal. It probably works with `zsh` as well.
+
+### How do I write plugins for GoPS?
+That is pretty easy. There is an `example.go` file in the `segments/` folder with a skeleton for a segment. You basically add as many segments as you wish to the provided list of segments and return it. Make sure you add your custom package to import list of the `main.go` file and call your `Add` function in the `main` function. Each segment defines a foreground and background color. If two consecutive segments have the same background color, a small separator in the foreground color is added, otherwise the full separator is inserted.
