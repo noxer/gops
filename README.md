@@ -43,7 +43,7 @@ You've either not installed `powerline-fonts` or it is not configured to be used
 Open an issue in this repository. Make sure you include information about the used operating system and terminal.
 
 ### Does GoPS support shell XYZ?
-No idea. I've tested it with `bash` in a GNOME-Terminal. It probably works with `zsh` as well.
+No idea. I've tested it with `bash` in a GNOME-Terminal. It probably works with `zsh` as well. Feel free to try it and let me know.
 
 ### How do I write plugins for GoPS?
 That is pretty easy. There is an `example.go` file in the `segments/` folder with a skeleton for a segment. You basically add as many segments as you wish to the provided list of segments and return it. Make sure you add your custom package to import list of the `main.go` file and call your `Add` function in the `main` function. Each segment defines a foreground and background color. If two consecutive segments have the same background color, a small separator in the foreground color is added, otherwise the full separator is inserted.
