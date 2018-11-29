@@ -4,15 +4,7 @@ import (
 	"strings"
 
 	"github.com/noxer/gops/color"
-)
-
-const (
-	branch       = '\ue0a0'
-	lock         = '\ue0a2'
-	sepRight     = '\ue0b0'
-	sepThinRight = '\ue0b1'
-	sepLeft      = '\ue0b2'
-	sepThinLeft  = '\ue0b3'
+	"github.com/noxer/gops/symbols"
 )
 
 type Segment struct {
@@ -41,10 +33,10 @@ func Render(segs ...Segment) string {
 
 		if segs[i].Background == s.Background {
 			// Both backgrounds are the same, render just a thin sep
-			buf.WriteRune(sepThinRight)
+			buf.WriteRune(symbols.SepThinRight)
 		} else {
 			buf.WriteString(color.Render(segs[i].Background, s.Background))
-			buf.WriteRune(sepRight)
+			buf.WriteRune(symbols.SepRight)
 		}
 
 		buf.WriteString(color.Render(s.Foreground, s.Background))
