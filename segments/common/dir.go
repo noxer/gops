@@ -49,6 +49,7 @@ func AddDir(segs []separator.Segment) []separator.Segment {
 			Text:       " " + p + " ",
 			Foreground: color.LightGray,
 			Background: color.DarkGray,
+			Bold:       true,
 		}
 		segs = append(segs, s)
 	}

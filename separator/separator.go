@@ -11,6 +11,7 @@ type Segment struct {
 	Text       string
 	Foreground color.Color
 	Background color.Color
+	Bold       bool
 }
 
 var EndSegment = Segment{
@@ -39,7 +40,12 @@ func Render(segs ...Segment) string {
 			buf.WriteRune(symbols.SepRight)
 		}
 
-		buf.WriteString(color.Render(s.Foreground, s.Background))
+		var fmts []color.Formatting
+		if s.Bold {
+			fmts = append(fmts, color.Bold)
+		}
+
+		buf.WriteString(color.Render(s.Foreground, s.Background, fmts...))
 		buf.WriteString(s.Text)
 
 	}

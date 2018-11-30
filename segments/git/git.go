@@ -26,6 +26,7 @@ func Add(segs []separator.Segment) []separator.Segment {
 			Text:       " \ue0a0 ? ",
 			Foreground: color.DarkGray,
 			Background: color.Yellow,
+			Bold:       true,
 		})
 	}
 
@@ -33,6 +34,7 @@ func Add(segs []separator.Segment) []separator.Segment {
 		Text:       " \ue0a0 " + head.Name().Short() + " ",
 		Foreground: color.DarkGray,
 		Background: color.Yellow,
+		Bold:       true,
 	}
 
 	return append(segs, s)
