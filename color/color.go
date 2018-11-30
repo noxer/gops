@@ -48,5 +48,5 @@ func Render(fg, bg Color, fs ...Formatting) string {
 		buf += fmt.Sprintf(";%d", f)
 	}
 
-	return fmt.Sprintf("\001\033[%d;%d%sm\002", fg, bg+10, buf)
+	return fmt.Sprintf("\001\033[0;%d;%d%sm\002", fg, bg+10, buf)
 }
