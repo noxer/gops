@@ -7,5 +7,5 @@ const (
 	SepThinRight = '\ue0b1'
 	SepLeft      = '\ue0b2'
 	SepThinLeft  = '\ue0b3'
-	Elipsis      = '\u2026'
+	Ellipsis     = '\u2026'
 )

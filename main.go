@@ -57,7 +57,7 @@ func ps1() {
 func ps2() {
 
 	segs := []separator.Segment{
-		{Text: " " + string(symbols.Elipsis) + " ", Foreground: color.LightGray, Background: color.DarkGray},
+		{Text: " " + string(symbols.Ellipsis) + " ", Foreground: color.LightGray, Background: color.DarkGray},
 		end,
 	}
 
