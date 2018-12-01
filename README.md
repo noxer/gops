@@ -1,3 +1,7 @@
+[![GoDoc](https://godoc.org/github.com/noxer/gops?status.svg)](https://godoc.org/github.com/noxer/gops)
+[![Go Report Card](https://goreportcard.com/badge/github.com/noxer/gops)](https://goreportcard.com/report/github.com/noxer/gops)
+[![Build Status](https://travis-ci.org/noxer/gops.svg?branch=master)](https://travis-ci.org/noxer/gops)
+
 # GoPS
 The goal of GoPS to offer a fast powerline-like prompt.
 ![image showing the effects of the new prompt](https://raw.githubusercontent.com/noxer/gops/master/img/example.png)
