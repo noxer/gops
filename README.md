@@ -1,4 +1,3 @@
-[![GoDoc](https://godoc.org/github.com/noxer/gops?status.svg)](https://godoc.org/github.com/noxer/gops)
 [![Go Report Card](https://goreportcard.com/badge/github.com/noxer/gops)](https://goreportcard.com/report/github.com/noxer/gops)
 [![Build Status](https://travis-ci.org/noxer/gops.svg?branch=master)](https://travis-ci.org/noxer/gops)
 
@@ -51,3 +50,10 @@ No idea. I've tested it with `bash` in a GNOME-Terminal. It probably works with 
 
 ### How do I write plugins for GoPS?
 That is pretty easy. There is an `example.go` file in the `segments/` folder with a skeleton for a segment. You basically add as many segments as you wish to the provided list of segments and return it. Make sure you add your custom package to import list of the `main.go` file and call your `Add` function in the `main` function. Each segment defines a foreground and background color. If two consecutive segments have the same background color, a small separator in the foreground color is added, otherwise the full separator is inserted.
+
+## API
+You can find the packages rendering the different parts here:
+
+* Segments: [![GoDoc](https://godoc.org/github.com/noxer/gops/segments?status.svg)](https://godoc.org/github.com/noxer/gops/segments)
+* Separator: [![GoDoc](https://godoc.org/github.com/noxer/gops/separator?status.svg)](https://godoc.org/github.com/noxer/gops/separator)
+* Symbols: [![GoDoc](https://godoc.org/github.com/noxer/gops/symbols?status.svg)](https://godoc.org/github.com/noxer/gops/symbols)
