@@ -3,6 +3,7 @@ go:
 - 1.10.x
 - 1.11.x
 - 1.x
+  env: LATEST=true
 - master
 
 before_deploy:
@@ -25,3 +26,4 @@ deploy:
   on:
     repo: noxer/gops
     tags: true
+    condition: $LATEST = true
