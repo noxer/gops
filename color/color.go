@@ -2,46 +2,79 @@ package color
 
 import "fmt"
 
+// Color represents a terminal color
 type Color byte
 
 const (
-	Black        Color = 30
-	Red          Color = 31
-	Green        Color = 32
-	Yellow       Color = 33
-	Blue         Color = 34
-	Magenta      Color = 35
-	Cyan         Color = 36
-	LightGray    Color = 37
-	Default      Color = 39
-	DarkGray     Color = 90
-	LightRed     Color = 91
-	LightGreen   Color = 92
-	LightYellow  Color = 93
-	LightBlue    Color = 94
+	// Black color constant
+	Black Color = 30
+	// Red color constant
+	Red Color = 31
+	// Green color constant
+	Green Color = 32
+	// Yellow color constant
+	Yellow Color = 33
+	// Blue color constant
+	Blue Color = 34
+	// Magenta color constant
+	Magenta Color = 35
+	// Cyan color constant
+	Cyan Color = 36
+	// LightGray color constant
+	LightGray Color = 37
+	// Default color constant (default of the terminal)
+	Default Color = 39
+	// DarkGray color constant
+	DarkGray Color = 90
+	// LightRed color constant
+	LightRed Color = 91
+	// LightGreen color constant
+	LightGreen Color = 92
+	// LightYellow color constant
+	LightYellow Color = 93
+	// LightBlue color constant
+	LightBlue Color = 94
+	// LightMagenta color constant
 	LightMagenta Color = 95
-	LightCyan    Color = 96
-	White        Color = 97
+	// LightCyan color constant
+	LightCyan Color = 96
+	// White color constant
+	White Color = 97
 )
 
+// Formatting represents a character formatting
 type Formatting byte
 
 const (
-	Reset           Formatting = 0
-	Bold            Formatting = 1
-	Dim             Formatting = 2
-	Underlined      Formatting = 4
-	Blink           Formatting = 5
-	Reverse         Formatting = 7
-	Hidden          Formatting = 8
-	ResetBold       Formatting = 21
-	ResetDim        Formatting = 22
+	// Reset formatting constant
+	Reset Formatting = 0
+	// Bold formatting constant
+	Bold Formatting = 1
+	// Dim formatting constant
+	Dim Formatting = 2
+	// Underlined formatting constant
+	Underlined Formatting = 4
+	// Blink formatting constant
+	Blink Formatting = 5
+	// Reverse (inverted colors) formatting constant
+	Reverse Formatting = 7
+	// Hidden formatting constant
+	Hidden Formatting = 8
+	// ResetBold formatting constant
+	ResetBold Formatting = 21
+	// ResetDim formatting constant
+	ResetDim Formatting = 22
+	// ResetUnderlined formatting constant
 	ResetUnderlined Formatting = 24
-	ResetBlink      Formatting = 25
-	ResetReverse    Formatting = 27
-	ResetHidden     Formatting = 28
+	// ResetBlink formatting constant
+	ResetBlink Formatting = 25
+	// ResetReverse formatting constant
+	ResetReverse Formatting = 27
+	// ResetHidden formatting constant
+	ResetHidden Formatting = 28
 )
 
+// Render takes the foreground and background color as well as additional formatting constants and generates a terminal command.
 func Render(fg, bg Color, fs ...Formatting) string {
 	buf := ""
 	for _, f := range fs {
