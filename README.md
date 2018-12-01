@@ -71,6 +71,6 @@ That is pretty easy. There is an `example.go` file in the `segments/` folder wit
 ## API
 You can find the packages rendering the different parts here:
 
-* Segments: [![GoDoc](https://godoc.org/github.com/noxer/gops/segments?status.svg)](https://godoc.org/github.com/noxer/gops/segments)
+* Common Segments: [![GoDoc](https://godoc.org/github.com/noxer/gops/segments/common?status.svg)](https://godoc.org/github.com/noxer/gops/segments)
 * Separator: [![GoDoc](https://godoc.org/github.com/noxer/gops/separator?status.svg)](https://godoc.org/github.com/noxer/gops/separator)
 * Symbols: [![GoDoc](https://godoc.org/github.com/noxer/gops/symbols?status.svg)](https://godoc.org/github.com/noxer/gops/symbols)
