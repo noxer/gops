@@ -1,9 +1,6 @@
 language: go
 go:
-- 1.10.x
-- 1.11.x
 - 1.x
-  env: LATEST=true
 
 before_deploy:
 - GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o gops_linux
@@ -25,4 +22,3 @@ deploy:
   on:
     repo: noxer/gops
     tags: true
-    condition: $LATEST = true
