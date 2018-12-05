@@ -1,49 +1,71 @@
 package git
 
 import (
+	"bytes"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 
 	"github.com/noxer/gops/color"
 	"github.com/noxer/gops/separator"
 	"github.com/noxer/gops/symbols"
-	"gopkg.in/src-d/go-git.v4"
 )
 
 // Add the Git branch as a segment
 func Add(segs []separator.Segment) []separator.Segment {
 
-	// get the current directory
-	wd, err := os.Getwd()
-	if err != nil {
+	branch := findGitRepo()
+	if branch == "" {
 		return segs
-	}
-
-	// search for a Git repo to we may be in
-	repo, err := git.PlainOpenWithOptions(wd, &git.PlainOpenOptions{DetectDotGit: true})
-	if err != nil {
-		return segs
-	}
-
-	// use the HEAD of the repo to find the current branch
-	head, err := repo.Head()
-	if err != nil {
-		// no HEAD in this repo, must be empty
-		return append(segs, separator.Segment{
-			Text:       " " + string(symbols.Branch) + " ? ",
-			Foreground: color.DarkGray,
-			Background: color.Yellow,
-			Bold:       true,
-		})
 	}
 
 	// add the segment with the repo name
 	s := separator.Segment{
-		Text:       " " + string(symbols.Branch) + " " + head.Name().Short() + " ",
+		Text:       " " + string(symbols.Branch) + " " + branch + " ",
 		Foreground: color.DarkGray,
 		Background: color.Yellow,
 		Bold:       true,
 	}
 
 	return append(segs, s)
+
+}
+
+func findGitRepo() string {
+
+	dir, err := os.Getwd()
+	if err != nil {
+		return ""
+	}
+
+	for {
+
+		repoDir := filepath.Join(dir, ".git")
+		if _, err = os.Stat(filepath.Join(dir, ".git")); err == nil {
+			return readHEAD(repoDir)
+		}
+
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			break
+		}
+		dir = parent
+
+	}
+
+	return ""
+
+}
+
+func readHEAD(repoDir string) string {
+
+	repoDir = filepath.Join(repoDir, "HEAD")
+
+	p, err := ioutil.ReadFile(repoDir)
+	if err != nil {
+		return "?"
+	}
+
+	return string(bytes.TrimPrefix(bytes.TrimSpace(p), []byte("ref: refs/heads/")))
 
 }
