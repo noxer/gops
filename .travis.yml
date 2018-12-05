@@ -7,6 +7,7 @@ before_deploy:
 - GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o gops_macos
 - GOOS=freebsd GOARCH=amd64 go build -ldflags="-s -w" -o gops_freebsd
 - GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o gops_openbsd
+- GOOS=linux GOARCH=arm GOARM=7 go build -ldflags="-s -w" -o gops_raspi
 
 deploy:
   provider: releases
@@ -17,6 +18,7 @@ deploy:
   - gops_macos
   - gops_freebsd
   - gops_openbsd
+  - gops_raspi
   skip_cleanup: true
   draft: true
   on:
