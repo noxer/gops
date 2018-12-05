@@ -13,11 +13,14 @@ GoPS relies on modded fonts (namely powerline-fonts) to display some of the symb
 
 Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS. Place it in a folder which is in `$PATH`.
 
-After the downloading and building of GoPS is complete, add it as your prompt. Is this case I'm editing the `~/.bashrc` file and adding the following line
+After the downloading and building of GoPS is complete, add it as your prompt. Is this case I'm editing the `~/.bashrc` file and adding the following lines
 
 ```bash
 PS1='$(gops)'
+PS2='$(gops -p 2)'
 ```
+
+The first line activates GoPS as your default prompt, the second line for continuation prompts (when the command ends with '\' a continuation prompt will be written to the next line).
 
 To apply the change, you need to either close your console and open it again or source the updated `.bashrc` file as follows:
 
