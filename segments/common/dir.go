@@ -12,7 +12,7 @@ import (
 )
 
 // AddDir appends the directory segments for the current directory to the list of segments.
-func AddDir(segs []separator.Segment) []separator.Segment {
+func AddDir(segs []separator.Segment, compact bool) []separator.Segment {
 
 	// get the current working dir
 	wd, err := os.Getwd()
@@ -26,6 +26,16 @@ func AddDir(segs []separator.Segment) []separator.Segment {
 		if strings.HasPrefix(wd, user.HomeDir) {
 			wd = "~" + strings.TrimPrefix(wd, user.HomeDir)
 		}
+	}
+
+	if compact {
+		s := separator.Segment{
+			Text:       " " + wd + " ",
+			Foreground: color.LightGray,
+			Background: color.DarkGray,
+			Bold:       true,
+		}
+		return append(segs, s)
 	}
 
 	// split the directory into segments

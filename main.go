@@ -45,7 +45,7 @@ func ps1() {
 	var segs []separator.Segment
 	segs = common.AddHost(segs)
 	segs = common.AddUser(segs)
-	segs = common.AddDir(segs)
+	segs = common.AddDir(segs, false)
 	segs = git.Add(segs)
 	segs = append(segs, end)
 
