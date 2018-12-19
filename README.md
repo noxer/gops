@@ -20,7 +20,7 @@ PS1='$(gops)'
 PS2='$(gops -p 2)'
 ```
 
-The first line activates GoPS as your default prompt, the second line for continuation prompts (when the command ends with '\' a continuation prompt will be written to the next line).
+The first line activates GoPS as your default prompt, the second line for continuation prompts (when the command ends with `\` a continuation prompt will be written to the next line).
 
 To apply the change, you need to either close your console and open it again or source the updated `.bashrc` file as follows:
 
