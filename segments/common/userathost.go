@@ -9,7 +9,7 @@ import (
 	"github.com/noxer/gops/separator"
 )
 
-// AddHost adds the host name of the current machine to the prompt
+// AddUserAtHost adds the current user and the hostname of the current machine to the prompt
 func AddUserAtHost(segs []separator.Segment) []separator.Segment {
 
 	// get the hose name
