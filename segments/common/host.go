@@ -3,7 +3,7 @@ package common
 import (
 	"os"
 	"strings"
-	
+
 	"github.com/noxer/gops/color"
 	"github.com/noxer/gops/separator"
 )
@@ -16,7 +16,7 @@ func AddHost(segs []separator.Segment) []separator.Segment {
 	if err != nil {
 		// did not work? just place a ?
 		h = "?"
-	}else {
+	} else {
 		h = strings.TrimSuffix(h, ".local")
 	}
 
