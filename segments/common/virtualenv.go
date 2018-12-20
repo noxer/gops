@@ -3,7 +3,6 @@ package common
 import (
 	"os"
 	"path/filepath"
-	"strings"
 
 	"github.com/noxer/gops/color"
 	"github.com/noxer/gops/separator"
@@ -20,8 +19,7 @@ func AddVenv(segs []separator.Segment) []separator.Segment {
 	}
 
 	// strip the full path
-	parts := strings.Split(venvpath, string(filepath.Separator))
-	venv := parts[len(parts)-1]
+	venv := filepath.Base(venvpath)
 
 	// create the segment
 	s := separator.Segment{
