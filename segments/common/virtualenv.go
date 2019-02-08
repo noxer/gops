@@ -15,7 +15,6 @@ func AddVenv(segs []separator.Segment) []separator.Segment {
 	venvpath := os.Getenv("VIRTUAL_ENV")
 	if venvpath == "" {
 		return segs
-
 	}
 
 	// strip the full path
