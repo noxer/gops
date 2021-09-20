@@ -74,12 +74,20 @@ const (
 	ResetHidden Formatting = 28
 )
 
+func EscapeBASH(s string) string {
+	return "\001" + s + "\002"
+}
+
+func EscapeZSH(s string) string {
+	return "%{" + s + "%}"
+}
+
 // Render takes the foreground and background color as well as additional formatting constants and generates a terminal command.
-func Render(fg, bg Color, fs ...Formatting) string {
+func Render(fg, bg Color, escape func(string) string, fs ...Formatting) string {
 	buf := ""
 	for _, f := range fs {
 		buf += fmt.Sprintf(";%d", f)
 	}
 
-	return fmt.Sprintf("\001\033[0;%d;%d%sm\002", fg, bg+10, buf)
+	return escape(fmt.Sprintf("\033[0;%d;%d%sm", fg, bg+10, buf))
 }

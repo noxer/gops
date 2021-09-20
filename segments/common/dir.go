@@ -11,13 +11,10 @@ import (
 	"github.com/noxer/gops/symbols"
 )
 
-// AddDir appends the directory segments for the current directory to the list of segments.
-func AddDir(segs []separator.Segment, compact bool) []separator.Segment {
-
-	// get the current working dir
+func wd() (string, error) {
 	wd, err := os.Getwd()
 	if err != nil {
-		return segs
+		return "", err
 	}
 
 	// if the home dir is a prefix of the current dir, replace it by ~
@@ -26,6 +23,17 @@ func AddDir(segs []separator.Segment, compact bool) []separator.Segment {
 		if strings.HasPrefix(wd, user.HomeDir) {
 			wd = "~" + strings.TrimPrefix(wd, user.HomeDir)
 		}
+	}
+
+	return wd, nil
+}
+
+// AddDir appends the directory segments for the current directory to the list of segments.
+func AddDir(segs []separator.Segment, compact bool) []separator.Segment {
+
+	wd, err := wd()
+	if err != nil {
+		return segs
 	}
 
 	if compact {

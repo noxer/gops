@@ -13,21 +13,6 @@ GoPS relies on modded fonts (namely powerline-fonts) to display some of the symb
 
 Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS. Place it in a folder which is in `$PATH`.
 
-After the downloading and building of GoPS is complete, add it as your prompt. Is this case I'm editing the `~/.bashrc` file and adding the following lines
-
-```bash
-PS1='$(gops)'
-PS2='$(gops -p 2)'
-```
-
-The first line activates GoPS as your default prompt, the second line for continuation prompts (when the command ends with `\` a continuation prompt will be written to the next line).
-
-To apply the change, you need to either close your console and open it again or source the updated `.bashrc` file as follows:
-
-```bash
-source ~/.bashrc
-```
-
 ### Building from source
 GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
 
@@ -41,16 +26,37 @@ Now you can install GoPS by running
 go get -u github.com/noxer/gops
 ```
 
-After the downloading and building of GoPS is complete, add it as your prompt. Is this case I'm editing the `~/.bashrc` file and adding the following line
+## Setup
+### bash
+After the downloading and building of GoPS is complete, add it as your prompt. For Bash edit `~/.bashrc` and add the following lines
 
 ```bash
 PS1='$(gops)'
+PS2='$(gops -p 2)'
 ```
 
-To apply the change, you need to either close your console and open it again or source the updated `.bashrc` file as follows:
+The first line activates GoPS as your default prompt, the second line for continuation prompts (when the command ends with `\` it will print a continuation prompt to the next line).
+
+To apply the change, you need to either close your shell and open it again or source the updated `.bashrc` file as follows:
 
 ```bash
 source ~/.bashrc
+```
+
+### zsh
+After the downloading and building of GoPS is complete, add it as your prompt. For ZSH edit `~/.zshrc` and add the following lines
+
+```zsh
+setopt PROMPT_SUBST
+PROMPT='$(gops -s zsh)'
+```
+
+The first line tells ZSH to evaluate the commands in the `$PROMPT` variable. The second line calls GoPS.
+
+To apply the change, you need to either close your shell and open it again or source the updated `.zshrc` file as follows:
+
+```zsh
+source ~/.zshrc
 ```
 
 ## FAQ
@@ -66,7 +72,7 @@ You've either not installed `powerline-fonts` or it is not configured to be used
 Open an issue in this repository. Make sure you include information about the used operating system and terminal.
 
 ### Does GoPS support shell XYZ?
-No idea. I've tested it with `bash` in a GNOME-Terminal. It probably works with `zsh` as well. Feel free to try it and let me know.
+No idea. I've tested it with `bash` in a GNOME-Terminal, and `zsh` in iTerm2. Feel free to try more combinations and let me know.
 
 ### How do I write plugins for GoPS?
 That is pretty easy. There is an `example.go` file in the `segments/` folder with a skeleton for a segment. You basically add as many segments as you wish to the provided list of segments and return it. Make sure you add your custom package to import list of the `main.go` file and call your `Add` function in the `main` function. Each segment defines a foreground and background color. If two consecutive segments have the same background color, a small separator in the foreground color is added, otherwise the full separator is inserted.

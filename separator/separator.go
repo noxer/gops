@@ -22,7 +22,7 @@ var EndSegment = Segment{
 }
 
 // Render takes a list of segments and renders them into a prompt string
-func Render(segs ...Segment) string {
+func Render(escape func(string) string, segs ...Segment) string {
 
 	if len(segs) == 0 {
 		return ""
@@ -32,7 +32,7 @@ func Render(segs ...Segment) string {
 	buf := &strings.Builder{}
 
 	// the first segment is just rendered as-is with no starting separator
-	buf.WriteString(color.Render(segs[0].Foreground, segs[0].Background))
+	buf.WriteString(color.Render(segs[0].Foreground, segs[0].Background, escape))
 	buf.WriteString(segs[0].Text)
 
 	for i, s := range segs[1:] {
@@ -42,7 +42,7 @@ func Render(segs ...Segment) string {
 			// if both backgrounds are the same color, render just a thin separator
 			buf.WriteRune(symbols.SepThinRight)
 		} else {
-			buf.WriteString(color.Render(segs[i].Background, s.Background))
+			buf.WriteString(color.Render(segs[i].Background, s.Background, escape))
 			buf.WriteRune(symbols.SepRight)
 		}
 
@@ -53,7 +53,7 @@ func Render(segs ...Segment) string {
 		}
 
 		// render the segment text
-		buf.WriteString(color.Render(s.Foreground, s.Background, fmts...))
+		buf.WriteString(color.Render(s.Foreground, s.Background, escape, fmts...))
 		buf.WriteString(s.Text)
 
 	}
