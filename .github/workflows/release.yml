@@ -1,0 +1,41 @@
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+name: Upload Release Asset
+
+jobs:
+  build:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Build project
+        run: |
+          GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o gops_linux
+          GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o gops_macos
+          GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w" -o gops_macos_m1
+          GOOS=freebsd GOARCH=amd64 go build -ldflags="-s -w" -o gops_freebsd
+          GOOS=openbsd GOARCH=amd64 go build -ldflags="-s -w" -o gops_openbsd
+          GOOS=linux GOARCH=arm GOARM=7 go build -ldflags="-s -w" -o gops_raspi
+
+      - name: Create release
+        run: |
+          set -x
+          assets=()
+          for asset in ./gops_*; do
+            assets+=("-a" "$asset")
+          done
+          tag_name="${GITHUB_REF##*/}"
+          hub release create -d "${assets[@]}" -m "$tag_name" "$tag_name"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
