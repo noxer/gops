@@ -8,9 +8,9 @@ The goal of GoPS to offer a fast powerline-like prompt.
 ## Installation
 There are two approaches of getting GoPS: Using a release or building it from source.
 
-### Using a release
 GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
 
+### Using a release
 Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS. Place it in a folder which is in `$PATH`.
 
 ### Building from source
