@@ -11,7 +11,9 @@ There are two approaches of getting GoPS: Using a release or building it from so
 GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
 
 ### Using a release
-Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS. Place it in a folder which is in `$PATH`.
+- Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS.
+- Rename it to `gops`.
+- Place it in a folder which is in `$PATH`.
 
 ### Building from source
 GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
