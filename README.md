@@ -65,7 +65,7 @@ source ~/.zshrc
 (Questions that have never been asked but I think the answers may help you)
 
 ### Where do it put my config file? How do I configure GoPS?
-You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselfs to adapt the prompt to your needs.
+You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselves to adapt the prompt to your needs.
 
 ### I've successfully built and activated GoPS but it prints strange characters in the prompt. How do I fix that?
 You've either not installed `powerline-fonts` or it is not configured to be used in your terminal. Make sure you've installed it from [here](https://github.com/powerline/fonts#installation) and you've activated one of the fonts. The font used for the screenshot is `Source Code Pro for Powerline`.
