@@ -66,8 +66,8 @@ Currently GoPS comes with a sall selection of segments for your prompt, which ca
 | ---------- | ---------- |
 | git        | current git branch |
 | dir        | path of the current dir (can be shortened) |
-| host       | hostname(FQDN) (can be shortened) |
-| nodejs     | version of the currently installes node.js |
+| host       | hostname (FQDN) (can be shortened) |
+| nodejs     | version of the currently installed node.js |
 | user       | name of the current user |
 | userathost | name of the current user and the hostname combined as user@host (can be shortened) |
 | virtualenv | name of the currently active python viratualenv |
