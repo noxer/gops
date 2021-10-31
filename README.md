@@ -59,6 +59,19 @@ To apply the change, you need to either close your shell and open it again or so
 source ~/.zshrc
 ```
 
+## Currently available segments
+Currently GoPS comes with a sall selection of segments for your prompt, which can be found in segments/
+
+| Segment    | Displayed Information |
+| ---------- | ---------- |
+| git        | current git branch |
+| dir        | path of the current dir (can be shortened) |
+| host       | hostname(FQDN) (can be shortened) |
+| nodejs     | version of the currently installes node.js |
+| user       | name of the current user |
+| userathost | name of the current user and the hostname combined as user@host (can be shortened) |
+| virtualenv | name of the currently active python viratualenv |
+
 ## FAQ
 (Questions that have never been asked but I think the answers may help you)
 
