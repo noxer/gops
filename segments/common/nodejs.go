@@ -17,16 +17,15 @@ func AddNodeVersion(segs []separator.Segment) []separator.Segment {
 
 	if err != nil {
 		// did not work? just place a ?
-		version = "?"
+		version = " ? "
 	}
 
 	// create the segment
 	s := separator.Segment{
-		Text:       "node: " + version,
+		Text:       " node: " + version + " ",
 		Foreground: color.White,
-		Background: color.DarkGray,
+		Background: color.Blue,
 	}
 
 	return append(segs, s)
-
 }
