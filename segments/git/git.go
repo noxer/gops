@@ -99,10 +99,17 @@ func parsePackedRefs(repoDir string) map[string]string {
 
 	m := make(map[string]string)
 	for s.Scan() {
-		hash, ref, ok := strings.Cut(strings.TrimSpace(s.Text()), " ")
-		if !ok {
+		line := strings.TrimSpace(s.Text())
+		// strings.Cut is part of Go 1.18 and not yet released
+		// hash, ref, ok := strings.Cut(line, " ")
+		// if !ok {
+		// 	continue
+		// }
+		parts := strings.SplitN(line, " ", 2)
+		if len(parts) != 2 {
 			continue
 		}
+		hash, ref := parts[0], parts[1]
 
 		m[hash] = ref
 	}
