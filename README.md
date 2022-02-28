@@ -8,14 +8,14 @@ The goal of GoPS to offer a fast powerline-like prompt.
 ## Installation
 There are two approaches of getting GoPS: Using a release or building it from source.
 
-GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
+GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install them and activate one of them in your terminal: <https://github.com/powerline/fonts#installation>
 
 ### Using a release
-Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS. Place it in a folder which is in `$PATH`.
+- Click on ["release"](https://github.com/noxer/gops/releases) and download the newest binary for your OS.
+- Rename it to `gops`.
+- Place it in a folder which is in `$PATH`.
 
 ### Building from source
-GoPS relies on modded fonts (namely powerline-fonts) to display some of the symbols. Make sure to install it and activate it for your terminal: <https://github.com/powerline/fonts#installation>
-
 Make sure the current Go version is installed. If not, refer to this guide: <https://golang.org/doc/install#install>
 
 Also make sure your `$GOPATH/bin` directory is in the `$PATH`.
@@ -59,11 +59,24 @@ To apply the change, you need to either close your shell and open it again or so
 source ~/.zshrc
 ```
 
+## Currently available segments
+Currently GoPS comes with a sall selection of segments for your prompt, which can be found in segments/
+
+| Segment    | Displayed Information |
+| ---------- | ---------- |
+| git        | current git branch |
+| dir        | path of the current dir (can be shortened) |
+| host       | hostname (FQDN) (can be shortened) |
+| nodejs     | version of the currently installed node.js |
+| user       | name of the current user |
+| userathost | name of the current user and the hostname combined as user@host (can be shortened) |
+| virtualenv | name of the currently active python viratualenv |
+
 ## FAQ
 (Questions that have never been asked but I think the answers may help you)
 
 ### Where do it put my config file? How do I configure GoPS?
-You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselfs to adapt the prompt to your needs.
+You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselves to adapt the prompt to your needs.
 
 ### I've successfully built and activated GoPS but it prints strange characters in the prompt. How do I fix that?
 You've either not installed `powerline-fonts` or it is not configured to be used in your terminal. Make sure you've installed it from [here](https://github.com/powerline/fonts#installation) and you've activated one of the fonts. The font used for the screenshot is `Source Code Pro for Powerline`.

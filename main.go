@@ -47,6 +47,7 @@ func ps1(shell string) {
 	var segs []separator.Segment
 	segs = common.AddUserAtHost(segs, true)
 	segs = common.AddDir(segs, true)
+	segs = common.AddNodeVersion(segs)
 	segs = git.Add(segs)
 	segs = append(segs, end)
 
