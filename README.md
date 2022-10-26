@@ -60,7 +60,7 @@ source ~/.zshrc
 ```
 
 ## Currently available segments
-Currently GoPS comes with a sall selection of segments for your prompt, which can be found in segments/
+Currently GoPS comes with a small selection of segments for your prompt, which can be found in segments/
 
 | Segment    | Displayed Information |
 | ---------- | ---------- |
@@ -76,7 +76,7 @@ Currently GoPS comes with a sall selection of segments for your prompt, which ca
 (Questions that have never been asked but I think the answers may help you)
 
 ### Where do it put my config file? How do I configure GoPS?
-You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselves to adapt the prompt to your needs.
+You don't. Right now GoPS does not support any config files or command line parameters. Instead you can edit `main.go` or the segments themselves to adapt the prompt to your needs. This helps GoPS to be as performant as possible. I recognize that this requires you to know the basics of the Go language. In the future I might offer an easier solution.
 
 ### I've successfully built and activated GoPS but it prints strange characters in the prompt. How do I fix that?
 You've either not installed `powerline-fonts` or it is not configured to be used in your terminal. Make sure you've installed it from [here](https://github.com/powerline/fonts#installation) and you've activated one of the fonts. The font used for the screenshot is `Source Code Pro for Powerline`.
