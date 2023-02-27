@@ -36,13 +36,13 @@ func AddUserAtHost(segs []separator.Segment, compact bool) []separator.Segment {
 	// create and add the host name segment
 	s := separator.Segment{
 		Text:       " " + u.Username + "@" + h + " ",
-		Foreground: color.Black,
-		Background: color.Green,
+		Foreground: color.Green,
+		Background: color.Black,
 	}
 	// if the current user is root, turn the segment red
 	if u.Uid == "0" {
-		s.Foreground = color.White
-		s.Background = color.Red
+		s.Foreground = color.Red
+		s.Background = color.Black
 	}
 
 	return append(segs, s)

@@ -14,7 +14,7 @@ func AddHost(segs []separator.Segment, compact bool) []separator.Segment {
 	// get the host name
 	h, err := os.Hostname()
 	if err != nil {
-		// did not work? just place a ?
+		// did not work? just place a questionmark
 		h = "?"
 	}
 
