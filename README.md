@@ -1,3 +1,5 @@
+Moved to https://codeberg.org/plusmid/gops
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/noxer/gops)](https://goreportcard.com/report/github.com/noxer/gops)
 [![Build Status](https://travis-ci.org/noxer/gops.svg?branch=master)](https://travis-ci.org/noxer/gops)
 
